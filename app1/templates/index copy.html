@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger text-white">
+        <a class="navbar-brand" href="/">T-UP3</a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-3 ml-3" >
+        <a class="navbar-brand" href="/">コンテンツ新規登録</a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary text-white mt-3 ml-5">
+        <a class="navbar-brand" href="/">自動更新用検索条件</a>
+    </nav>
+
+    <!-- 自動更新用検索条件 -->
+    <div class="container-fluid bg-light ml-5 ">
+
+        <!-- 登録形態 -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >登録形態</a>
+            </div>
+            <div class="col-2 form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    エスコート
+                </label>
+            </div>
+            <div class="col-2 form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    MySTYLE(UAH含む)
+                </label>
+            </div>
+
+            <div class="col-1 form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                   航空券
+                </label>
+            </div>
+
+            <div class="col-1 form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                   ホテル
+                </label>
+            </div>
+        </div>
+
+        <!-- 出力先 -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >出力先</a>
+            </div>
+
+        </div>
+
+        <!-- 出発地 -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >出発地</a>
+            </div>
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>---------</option>
+                    <option value="1">東京(羽田⁺成田)</option>
+                    <option value="2">東京(羽田)</option>
+                    <option value="3">東京(成田)</option>
+                    <option value="4">大阪(関空+伊丹+神戸)</option>
+                    <option value="5">札幌(新札幌)</option>
+                    <option value="6">名古屋(新千歳)</option>
+                    <option value="7">福岡</option>
+                  </select>
+            </div>
+        </div>
+
+        <!-- 出発日設定時間 -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >出発日設定時間</a>
+            </div>
+
+            <div class="col-2 form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    絶対設定
+                </label>
+            </div>
+        </div>
+
+        <!-- ルートパッケージID -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >ルートパッケージID</a>
+            </div>
+            <div class="ml-1 col-3">
+                <input >
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <!-- サービスパッケージID -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >サービスパッケージID</a>
+            </div>
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >サービスパッケージID</a>
+            </div>
+        </div>
+
+        <!-- 航空会社 -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >航空会社</a>
+            </div>
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >航空会社</a>
+            </div>
+        </div>
+
+        <!-- キャビンクラス（往路） -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >キャビンクラス（往路）</a>
+            </div>
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >キャビンクラス（往路）</a>
+            </div>
+        </div>
+
+        <!-- 便名（往路） -->
+        <div class="container ml-1 row" >
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >便名（往路）</a>
+            </div>
+            <div class="ml-1 col-3">
+                <a class="navbar-brand" >便名（往路）</a>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
