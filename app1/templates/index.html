@@ -32,26 +32,26 @@
             <div class="row">
                 <div class="col-3 border bg-light">登録形態</div>
                 <div class="col-2 form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
                         エスコート
                     </label>
                 </div>
                 <div class="col-2 form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
                         MySTYLE(UAH含む)
                     </label>
                 </div>    
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
                        航空券
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
                        ホテル
                     </label>
                 </div>
@@ -62,7 +62,14 @@
         <div class="container-fluid ml-5" >
             <div class="row">
                 <div class="col-3 border bg-light ">出力先</div>
-                <div class="col-8 border">？？？</div>
+                <div class="col-8 border">
+                    <input class="ml-1" type="checkbox" id="outputDestinationJtbChackBox" name="outputDestinationJtbChackBox" />
+                    <label for="horns">JTB</label>
+                    <input class="ml-1" type="checkbox" id="outputDestinationTravelChackBox" name="outputDestinationTravelChackBox" />
+                    <label for="horns">トラベルコ</label>
+                    <input class="ml-1" type="checkbox" id="outputDestinationPamphletChackBox" name="outputDestinationPamphletChackBox" />
+                    <label for="horns">パンフレット</label>
+                </div>
             </div>
         </div>  
 
@@ -71,7 +78,7 @@
             <div class="row">
                 <div class="col-3 border bg-light">出発地</div>
                 <div class="col-8 border">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" id="departurePoint" name="departurePoint">
                         <option selected>---------</option>
                         <option value="1">東京(羽田⁺成田)</option>
                         <option value="2">東京(羽田)</option>
@@ -80,7 +87,7 @@
                         <option value="5">札幌(新札幌)</option>
                         <option value="6">名古屋(新千歳)</option>
                         <option value="7">福岡</option>
-                      </select>
+                    </select>
                 </div>
             </div>
         </div>
@@ -92,17 +99,17 @@
                 <div class="col-8 border form-check">
                     
                     <!-- 絶対設定 -->
-                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">絶対設定</label>
-                    <input type="date" class="ml-4" id="departureDate" name="departureDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio">
+                    <label class="form-check-label" for="departureDateSettingRadio">絶対設定</label>
+                    <input type="date" class="ml-4" id="absoluteSettingStartDate" name="absoluteSettingStartDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
                     <Label>～</Label>
-                    <input type="date" id="arrivalDate" name="arrivalDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+                    <input type="date" id="absoluteSettingEndDate" name="absoluteSettingEndDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
                     <br>
 
-                    <!-- 絶対設定1 -->
-                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">絶対設定1</label>
-                    <select class="form-select ml-3" aria-label="Default select example">
+                    <!-- 相対設定1 -->
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio">
+                    <label class="form-check-label" for="departureDateSettingRadio">絶対設定1</label>
+                    <select class="form-select ml-3" aria-label="Default select example" id="relativeSettings1StartList" name="relativeSettings1StartList">
                             <option selected>---------</option>
                             <option value="1">サンプル1</option>
                             <option value="2">サンプル2</option>
@@ -112,14 +119,25 @@
                             <option value="6">サンプル6</option>
                             <option value="7">サンプル7</option>
                     </select>
+                    <Label>～</Label>
+                    <select class="form-select ml-3" aria-label="Default select example" id="relativeSettings1EndList" name="relativeSettings1EndList">
+                        <option selected>---------</option>
+                        <option value="1">サンプル1</option>
+                        <option value="2">サンプル2</option>
+                        <option value="3">サンプル3</option>
+                        <option value="4">サンプル4</option>
+                        <option value="5">サンプル5</option>
+                        <option value="6">サンプル6</option>
+                        <option value="7">サンプル7</option>
+                    </select>                   
                     <br>
 
-                    <!-- 絶対設定2 -->
-                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">絶対設定2</label>
-                    <input type="text" class="ml-3" id="departureDate" name="departureDate" value=""/>
+                    <!-- 相対設定2 -->
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio">
+                    <label class="form-check-label" for="departureDateSettingRadio">絶対設定2</label>
+                    <input type="text" class="ml-3" size="3" id="relativeSettings2StartDayTxt" name="relativeSettings2StartDayTxt" value=""/>
                     <Label>日後～</Label>
-                    <input type="text" class="ml-3" id="departureDate" name="departureDate" value=""/>
+                    <input type="text" class="ml-3" size="3" id="relativeSettings2EndDayTxt" name="relativeSettings2EndDayTxt" value=""/>
                     <Label>日後</Label>
                 </div>
             </div>
