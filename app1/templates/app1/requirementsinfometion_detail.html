@@ -1,0 +1,21 @@
+{% extends "app1/index.html" %}
+{% load l10n %}
+<!-- 詳細画面-->
+<h2>{{ object.id }}</h2>
+<div>
+    {{ object.registrationFormRadioButton }}
+    {{ object.outputDestinationJtbChackBox }}
+    {{ object.outputDestinationTravelChackBox }}
+    {{ object.outputDestinationPamphletChackBox }}
+    {{ object.departurePoint }}
+    {{ object.adultNum }}
+    {{ object.departureDateSettingRadio }}
+    {{ object.absoluteSettingStartDate }}
+    {{ object.absoluteSettingEndDate }}
+    {{ object.relativeSettings1StartList }}
+    {{ object.relativeSettings1EndList }}
+    {{ object.relativeSettings2StartDayTxt }}
+    {{ object.relativeSettings2EndDayTxt }}
+</div>
+<p><a href="{% url 'update' %}">条件編集</a></p>
+{% endblock %}

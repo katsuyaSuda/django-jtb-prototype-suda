@@ -1,8 +1,8 @@
 {% extends "app1/index.html" %}
 {% block main %}
-<form method="post">
+<!-- 新規作成画面-->
+<form class="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
     <!-- 自動更新用検索条件 -->
     <div class="container-fluid ml-0">
 
@@ -55,8 +55,9 @@
         <!-- 出発地 -->
         <div class="container-fluid ml-5" >
             <div class="row">
+                <!-- 出発地 -->
                 <div class="col-3 border bg-light">出発地</div>
-                <div class="col-8 border">
+                <div class="col-3 border">
                     <select class="form-select" aria-label="Default select example" id="departurePoint" name="departurePoint">
                         <option selected>---------</option>
                         <option value="1">東京(羽田⁺成田)</option>
@@ -67,6 +68,11 @@
                         <option value="6">名古屋(新千歳)</option>
                         <option value="7">福岡</option>
                     </select>
+                </div>
+                <!-- 大人人数 -->
+                <div class="col-2 border bg-light">大人人数</div>
+                <div class="col-3 border">
+                    <input type="text" name="adultNum">
                 </div>
             </div>
         </div>
@@ -87,7 +93,7 @@
 
                     <!-- 相対設定1 -->
                     <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio">
-                    <label class="form-check-label" for="departureDateSettingRadio">絶対設定1</label>
+                    <label class="form-check-label" for="departureDateSettingRadio">相対設定1</label>
                     <select class="form-select ml-3" aria-label="Default select example" id="relativeSettings1StartList" name="relativeSettings1StartList">
                             <option selected>---------</option>
                             <option value="1">サンプル1</option>
@@ -113,7 +119,7 @@
 
                     <!-- 相対設定2 -->
                     <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio">
-                    <label class="form-check-label" for="departureDateSettingRadio">絶対設定2</label>
+                    <label class="form-check-label" for="departureDateSettingRadio">相対設定2</label>
                     <input type="text" class="ml-3" size="3" id="relativeSettings2StartDayTxt" name="relativeSettings2StartDayTxt" value=""/>
                     <Label>日後～</Label>
                     <input type="text" class="ml-3" size="3" id="relativeSettings2EndDayTxt" name="relativeSettings2EndDayTxt" value=""/>
@@ -271,5 +277,8 @@
             </div>
         </div>
     </div>
+    <input type="submit" value="登録" class="btn btn-primary" />
+    <input type="submit" value="一時保存" class="btn btn-primary" />
+    <input type="submit" value="最新情報取得" class="btn btn-primary" />
 </form>
 {% endblock %}

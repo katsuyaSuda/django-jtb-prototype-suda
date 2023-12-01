@@ -1,0 +1,11 @@
+{% extends "app1/index.html" %}
+{% block main %}
+<!-- 一覧画面-->
+<ol>
+    {% for requirementsInfometion in object_list %}
+    <li><a href="{% url 'detail' requirementsInfometion.id %}">{{ requirementsInfometion.id }}</a></li>
+    {% endfor %}
+</ol>
+<p><a href="{% url 'create' %}">条件追加</a></p>
+{% endblock %}
+
