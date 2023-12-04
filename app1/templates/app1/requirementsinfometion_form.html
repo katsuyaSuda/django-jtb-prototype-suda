@@ -1,7 +1,7 @@
 {% extends "app1/index.html" %}
 {% block main %}
 <!-- 新規作成画面-->
-<form class="" method="post">
+<form method="post">
     {% csrf_token %}
     <!-- 自動更新用検索条件 -->
     <div class="container-fluid ml-0">
@@ -70,9 +70,9 @@
                     </select>
                 </div>
                 <!-- 大人人数 -->
-                <div class="col-2 border bg-light">大人人数</div>
+                <div class="col-3 border bg-light">大人人数</div>
                 <div class="col-3 border">
-                    <input type="text" name="adultNum">
+                    <input type="text" name="adultNum" size="10">
                 </div>
             </div>
         </div>
@@ -147,26 +147,26 @@
                 <div class="d-flex flex-column ml-1">
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">1都市目</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                </div>
+                            <div class="p-2 bg-light border">1都市目</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">2都市目</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                </div>
+                            <div class="p-2 bg-light border">2都市目</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">3都市目</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                </div>
+                            <div class="p-2 bg-light border">3都市目</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,37 +175,37 @@
                 <div class="d-flex flex-column ml-1">
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">現地出発日</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">現地出発日</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">LOP会社コード</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                </div>
+                            <div class="p-2 bg-light border">LOP会社コード</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">現地出発日</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">現地出発日</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">現地出発日</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">現地出発日</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,42 +214,40 @@
                 <div class="d-flex flex-column ml-1">
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">ホテルタリフコード</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">ホテルタリフコード</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">プランID</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                </div>
+                            <div class="p-2 bg-light border">プランID</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">ホテルタリフコード</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">ホテルタリフコード</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-2">
                         <div class="d-flex flex-row ml-1">
-                                <div class="p-2 bg-light border">ホテルタリフコード</div>
-                                <div class="p-2 border">
-                                    <input type="text">
-                                    <a>日後</a>
-                                </div>
+                            <div class="p-2 bg-light border">ホテルタリフコード</div>
+                            <div class="p-2 border">
+                                <input type="text">
+                                <a>日後</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -257,7 +255,10 @@
         <div class="container-fluid ml-5" >
             <div class="row">
                 <div class="col-3 border bg-light">航空会社</div>
-                <div class="col-8 border">航空会社</div>
+                <div class="col-8 border">
+                    <input type="text" id="AirlinesSelectTxt" name="AirlinesSelectTxt" size="3" >
+                    <input type="button" id="AirlinesSelectButton" name="AirlinesSelectButton" value="航空会社選択"> 
+                </div>
             </div>
         </div>
 
@@ -265,17 +266,49 @@
         <div class="container-fluid ml-5" >
             <div class="row">
                 <div class="col-3 border bg-light">キャビンクラス（往路）</div>
-                <div class="col-8 border">キャビンクラス（往路）</div>
+                <div class="col-2 form-check">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
+                        エコノミー
+                    </label>
+                </div>
+                <div class="col-2 form-check">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
+                        プレミアムエコノミー
+                    </label>
+                </div>    
+                <div class="col-1 form-check">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
+                        ビジネス
+                    </label>
+                </div>
+                <div class="col-1 form-check">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton">
+                    <label class="form-check-label" for="registrationFormRadioButton">
+                        ファースト
+                    </label>
+                </div>
             </div>
         </div>
 
         <!-- 便名（往路） -->
         <div class="container-fluid ml-5" >
             <div class="row">
+                <!-- 便名（往路） -->
                 <div class="col-3 border bg-light">便名（往路）</div>
-                <div class="col-8 border">便名（往路）</div>
+                <div class="col-3 border">
+                    <input type="text" id="flightNumberOutboundTripTxt" name="flightNumberOutboundTripTxt" size="10" >
+                </div>
+                <!-- 便名（複路）-->
+                <div class="col-3 border bg-light">便名（複路）</div>
+                <div class="col-3 border">
+                    <input type="text" id="flightNumberRoundTripTxt" name="flightNumberRoundTripTxt" size="10" >
+                </div>
             </div>
         </div>
+        
     </div>
     <input type="submit" value="登録" class="btn btn-primary" />
     <input type="submit" value="一時保存" class="btn btn-primary" />

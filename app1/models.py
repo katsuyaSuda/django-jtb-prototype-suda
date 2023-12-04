@@ -1,19 +1,26 @@
 from django.db import models
-from django.urls import reverse_lazy
+import uuid
+# from django.urls import reverse_lazy
 
 #region 条件情報
 #### 各条件設定 ####
-class ContentId(models.Model):
-    contentId = models.CharField(
-        max_length=255,
-        blank=False,
-        null=False,
-        unique=True)
-    
-    def __str__(self):
-        return self.contentId
+# class ContentId(models.Model):
+#     # contentId = models.UUIDField(
+#     #     primary_key=True, 
+#     #     default=uuid.uuid4, 
+#     #     editable=False)
+
+#     contentId = models.AutoField(
+#         primary_key=True,
+#         blank=True,
+#         null=False,
+#         unique=True)
+
+#     def __str__(self):
+#         return self.contentId
 
 class RequirementsInfometion(models.Model):
+
     #### 登録形態 ####
     registrationFormRadioButton = models.CharField(
         verbose_name='登録形態',
@@ -99,14 +106,10 @@ class RequirementsInfometion(models.Model):
         blank=True,
         null=True) 
     
-    contentId = models.ForeignKey(
-        ContentId,
-        on_delete=models.CASCADE)
+    # def get_absolute_url(self):
+    #     # /detail/id番号/
+    #     return reverse_lazy("detail", args=[self.id])
     
-    def __str__(self):
-        return self.contentId
-    
-    def get_absolute_url(self):
-        # /detail/id番号/
-        return reverse_lazy("detail", args=[self.id])
+    # def __str__(self):
+    #     return self.id
 #endregion 条件情報
