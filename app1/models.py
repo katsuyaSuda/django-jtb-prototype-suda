@@ -22,11 +22,12 @@ import uuid
 class RequirementsInfometion(models.Model):
 
     #### 登録形態 ####
-    registrationFormRadioButton = models.CharField(
+    registrationFormRadioButton = models.TextField(
         verbose_name='登録形態',
-        max_length=255,
+        choices=[('0', 'エスコート'), ('1', 'MySTYLE(UAH含む)'), ('2', '航空券 '), ('3', 'ホテル')],
         blank=False,
-        null=False)
+        null=False
+        )
 
     #### 出力先 ####
     #JTB
@@ -63,9 +64,9 @@ class RequirementsInfometion(models.Model):
 
     #### 出発日設定時間 ####
     #出発日設定時間_ラジオボタン
-    departureDateSettingRadio = models.CharField(
-        verbose_name='',
-        max_length=255,
+    departureDateSettingRadio = models.TextField(
+        verbose_name='出発日設定時間',
+        choices=[('0', '絶対設定'), ('1', '相対設定1'), ('2', '相対設定2')],
         blank=False,
         null=False)
 
@@ -105,7 +106,129 @@ class RequirementsInfometion(models.Model):
         max_length=255,
         blank=True,
         null=True) 
+
+    #### ルートパッケージID ####    
+    rootPackageId = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True) 
     
+    #### サービスパッケージID #### 
+    #1都市目
+    firstCity = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #1都市目_現地出発日
+    firstCityDepartureDate = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #1都市目_ホテルタリフコード
+    firstCityHotelTariffCode = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #1都市目_LOP会社コード
+    firstCityLopCompanyCode = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #1都市目_プランID
+    firstCityPlanId = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+
+    #2都市目
+    secondtCity = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #2都市目_現地出発日
+    secondtCityDepartureDate = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #2都市目_ホテルタリフコード
+    secondtCityHotelTariffCode = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #3都市目
+    thirdCity = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #3都市目_現地出発日
+    thirdCityDepartureDate = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #3都市目_ホテルタリフコード
+    thirdCityHotelTariffCode = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #### 航空会社 ####
+    #航空会社
+    airlinesSelectTxt = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True) 
+    
+    #### キャビンクラス（往路） ####
+    #キャビンクラス（往路）
+    cabinClassOutboundTripRadioButton = models.TextField(
+        verbose_name='キャビンクラス（往路）',
+        choices=[('0', 'エコノミー'), ('1', 'プレミアムエコノミー'), ('2', 'ビジネス '), ('3', 'ファースト')],
+        blank=True,
+        null=True) 
+    
+    #キャビンクラス（複路）
+    cabinClassRoundTripRadioButton = models.TextField(
+        verbose_name='キャビンクラス（複路）',
+        choices=[('0', 'エコノミー'), ('1', 'プレミアムエコノミー'), ('2', 'ビジネス '), ('3', 'ファースト')],
+        blank=True,
+        null=True) 
+
+    #便名（往路）
+    flightNumberOutboundTripTxt = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True) 
+    
+    #便名（複路）
+    flightNumberRoundTripTxt = models.CharField(
+        verbose_name='',
+        max_length=255,
+        blank=True,
+        null=True) 
+
     # def get_absolute_url(self):
     #     # /detail/id番号/
     #     return reverse_lazy("detail", args=[self.id])

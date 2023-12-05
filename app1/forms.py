@@ -20,7 +20,24 @@ class RequirementsInfometionForm(forms.ModelForm):
                   "relativeSettings1StartList",
                   "relativeSettings1EndList",
                   "relativeSettings2StartDayTxt",
-                  "relativeSettings2EndDayTxt"
+                  "relativeSettings2EndDayTxt",
+                  "rootPackageId",
+                  "firstCity",
+                  "firstCityDepartureDate",
+                  "firstCityHotelTariffCode",
+                  "firstCityLopCompanyCode",
+                  "firstCityPlanId",
+                  "secondtCity",
+                  "secondtCityDepartureDate",
+                  "secondtCityHotelTariffCode",
+                  "thirdCity",
+                  "thirdCityDepartureDate",
+                  "thirdCityHotelTariffCode",
+                  "airlinesSelectTxt",
+                  "cabinClassOutboundTripRadioButton",
+                  "cabinClassRoundTripRadioButton",
+                  "flightNumberOutboundTripTxt",
+                  "flightNumberRoundTripTxt",
                   )
 
 
