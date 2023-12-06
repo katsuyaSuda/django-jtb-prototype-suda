@@ -72,44 +72,44 @@ class RequirementsInfometion(models.Model):
 
     #絶対設定_開始日付
     absoluteSettingStartDate = models.DateTimeField(
-        verbose_name='',
+        verbose_name='絶対設定_開始日付',
         blank=True,
         null=True) 
     #絶対設定_終了日付
     absoluteSettingEndDate = models.DateTimeField(
-        verbose_name='',
+        verbose_name='絶対設定_終了日付',
         blank=True,
         null=True) 
     
     #相対設定1_開始リスト
     relativeSettings1StartList = models.CharField(
-        verbose_name='',
+        verbose_name='相対設定1_開始リスト',
         max_length=255,
         blank=True,
         null=True) 
     #相対設定1_終了リスト
     relativeSettings1EndList = models.CharField(
-        verbose_name='',
+        verbose_name='相対設定1_終了リスト',
         max_length=255,
         blank=True,
         null=True) 
     
-    #相対設定2_開始日エリア
+    #相対設定2_開始日
     relativeSettings2StartDayTxt = models.CharField(
-        verbose_name='',
+        verbose_name='相対設定2_開始日',
         max_length=255,
         blank=True,
         null=True) 
-    #相対設定2_終了日エリア
+    #相対設定2_終了日
     relativeSettings2EndDayTxt = models.CharField(
-        verbose_name='',
+        verbose_name='相対設定2_終了日',
         max_length=255,
         blank=True,
         null=True) 
 
     #### ルートパッケージID ####    
     rootPackageId = models.CharField(
-        verbose_name='',
+        verbose_name='ルートパッケージID',
         max_length=255,
         blank=True,
         null=True) 
@@ -117,77 +117,77 @@ class RequirementsInfometion(models.Model):
     #### サービスパッケージID #### 
     #1都市目
     firstCity = models.CharField(
-        verbose_name='',
+        verbose_name='1都市目',
         max_length=255,
         blank=True,
         null=True)
     
     #1都市目_現地出発日
     firstCityDepartureDate = models.CharField(
-        verbose_name='',
+        verbose_name='1都市目_現地出発日',
         max_length=255,
         blank=True,
         null=True)
     
     #1都市目_ホテルタリフコード
     firstCityHotelTariffCode = models.CharField(
-        verbose_name='',
+        verbose_name='1都市目_ホテルタリフコード',
         max_length=255,
         blank=True,
         null=True)
     
     #1都市目_LOP会社コード
     firstCityLopCompanyCode = models.CharField(
-        verbose_name='',
+        verbose_name='1都市目_LOP会社コード',
         max_length=255,
         blank=True,
         null=True)
     
     #1都市目_プランID
     firstCityPlanId = models.CharField(
-        verbose_name='',
+        verbose_name='1都市目_プランID',
         max_length=255,
         blank=True,
         null=True)
 
     #2都市目
     secondtCity = models.CharField(
-        verbose_name='',
+        verbose_name='2都市目',
         max_length=255,
         blank=True,
         null=True)
     
     #2都市目_現地出発日
     secondtCityDepartureDate = models.CharField(
-        verbose_name='',
+        verbose_name='2都市目_現地出発日',
         max_length=255,
         blank=True,
         null=True)
     
     #2都市目_ホテルタリフコード
     secondtCityHotelTariffCode = models.CharField(
-        verbose_name='',
+        verbose_name='2都市目_ホテルタリフコード',
         max_length=255,
         blank=True,
         null=True)
     
     #3都市目
     thirdCity = models.CharField(
-        verbose_name='',
+        verbose_name='3都市目',
         max_length=255,
         blank=True,
         null=True)
     
     #3都市目_現地出発日
     thirdCityDepartureDate = models.CharField(
-        verbose_name='',
+        verbose_name='3都市目_現地出発日',
         max_length=255,
         blank=True,
         null=True)
     
     #3都市目_ホテルタリフコード
     thirdCityHotelTariffCode = models.CharField(
-        verbose_name='',
+        verbose_name='3都市目_ホテルタリフコード',
         max_length=255,
         blank=True,
         null=True)
@@ -195,7 +195,7 @@ class RequirementsInfometion(models.Model):
     #### 航空会社 ####
     #航空会社
     airlinesSelectTxt = models.CharField(
-        verbose_name='',
+        verbose_name='航空会社',
         max_length=255,
         blank=True,
         null=True) 
@@ -217,17 +217,27 @@ class RequirementsInfometion(models.Model):
 
     #便名（往路）
     flightNumberOutboundTripTxt = models.CharField(
-        verbose_name='',
+        verbose_name='便名（往路）',
         max_length=255,
         blank=True,
         null=True) 
     
     #便名（複路）
     flightNumberRoundTripTxt = models.CharField(
-        verbose_name='',
+        verbose_name='便名（複路）',
         max_length=255,
         blank=True,
         null=True) 
+    
+    #作成日時
+    created_at = models.DateTimeField(
+        verbose_name='作成日時',
+        auto_now_add=True)
+    
+    #更新日時
+    updated_at = models.DateTimeField(
+        verbose_name='更新日時',
+        auto_now=True)
 
     # def get_absolute_url(self):
     #     # /detail/id番号/

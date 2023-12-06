@@ -1,75 +1,82 @@
 {% extends "app1/index.html" %}
 {% block main %}
 <!-- 一覧画面-->
-<table class="table-wrap" border="1">
-    <tr>
-        <th>登録形態</th>
-        <th>出力先_JTB</th>
-        <th>出力先_トラベルコ</th>
-        <th>出力先_パンフレット</th>
-        <th>出発地</th>
-        <th>大人人数</th>
-        <th>出発日設定時間</th>
-        <th>絶対設定_開始日付</th>
-        <th>絶対設定_終了日付</th>
-        <th>相対設定1_開始日付</th>
-        <th>相対設定1_終了日付</th>
-        <th>相対設定2_開始日付</th>
-        <th>相対設定2_終了日付</th>
-        <th>相対設定2_終了日付</th>
-        <th>ルートパッケージID</th>
-        <th>サービスパッケージID</th>
-        <th>1都市目</th>
-        <th>1都市目_現地出発日</th>
-        <th>1都市目_ホテルタリフコード</th>
-        <th>1都市目_LOP会社コード</th>
-        <th>1都市目_プランID</th>
-        <th>2都市目</th>
-        <th>2都市目_現地出発日</th>
-        <th>2都市目_ホテルタリフコード</th>
-        <th>3都市目</th>
-        <th>3都市目_現地出発日</th>
-        <th>3都市目_ホテルタリフコード</th>
-        <th>航空会社</th>
-        <th>キャビンクラス（往路）</th>
-        <th>キャビンクラス（複路）</th>
-        <th>便名（往路）</th>
-        <th>便名（複路）</th>
-    </tr>
-    {% for object in object_list %}
-    <tr>
-        <td>{{ object.registrationFormRadioButton }}</td>
-        <td>{{ object.outputDestinationJtbChackBox }}</td>
-        <td>{{ object.outputDestinationTravelChackBox }}</td>
-        <td>{{ object.outputDestinationPamphletChackBox }}</td>
-        <td>{{ object.departurePoint }}</td>
-        <td>{{ object.adultNum }}</td>
-        <td>{{ object.departureDateSettingRadio }}</td>
-        <td>{{ object.absoluteSettingStartDate }}</td>
-        <td>{{ object.absoluteSettingEndDate }}</td>
-        <td>{{ object.relativeSettings1StartList }}</td>
-        <td>{{ object.relativeSettings1EndList }}</td>
-        <td>{{ object.relativeSettings2StartDayTxt }}</td>
-        <td>{{ object.relativeSettings2EndDayTxt }}</td>
-        <td>{{ object.rootPackageId }}</td>
-        <td>{{ object.firstCity }}</td>
-        <td>{{ object.firstCityDepartureDate }}</td>
-        <td>{{ object.firstCityHotelTariffCode }}</td>
-        <td>{{ object.firstCityLopCompanyCode }}</td>
-        <td>{{ object.firstCityPlanId }}</td>
-        <td>{{ object.secondtCity }}</td>
-        <td>{{ object.secondtCityDepartureDate }}</td>
-        <td>{{ object.secondtCityHotelTariffCode }}</td>
-        <td>{{ object.thirdCity }}</td>
-        <td>{{ object.thirdCityDepartureDate }}</td>
-        <td>{{ object.thirdCityHotelTariffCode }}</td>
-        <td>{{ object.airlinesSelectTxt }}</td>
-        <td>{{ object.cabinClassOutboundTripRadioButton }}</td>
-        <td>{{ object.cabinClassRoundTripRadioButton }}</td>
-        <td>{{ object.flightNumberOutboundTripTxt }}</td>
-        <td>{{ object.flightNumberRoundTripTxt }}</td>
-    </tr>
-    {% endfor %}
-<p><a href="{% url 'create' %}">条件追加</a></p>
+<div class="table_box">
+    <table border="1">
+        <tr>
+            <th class="sticky">登録形態</th>
+            <th class="sticky">出力先_JTB</th>
+            <th class="sticky">出力先_トラベルコ</th>
+            <th class="sticky">出力先_パンフレット</th>
+            <th class="sticky">出発地</th>
+            <th class="sticky">大人人数</th>
+            <th class="sticky">出発日設定時間</th>
+            <th class="sticky">絶対設定_開始日付</th>
+            <th class="sticky">絶対設定_終了日付</th>
+            <th class="sticky">相対設定1_開始日付</th>
+            <th class="sticky">相対設定1_終了日付</th>
+            <th class="sticky">相対設定2_開始日付</th>
+            <th class="sticky">相対設定2_終了日付</th>
+            <th class="sticky">ルートパッケージID</th>
+            <th class="sticky">1都市目</th>
+            <th class="sticky">1都市目_現地出発日</th>
+            <th class="sticky">1都市目_ホテルタリフコード</th>
+            <th class="sticky">1都市目_LOP会社コード</th>
+            <th class="sticky">1都市目_プランID</th>
+            <th class="sticky">2都市目</th>
+            <th class="sticky">2都市目_現地出発日</th>
+            <th class="sticky">2都市目_ホテルタリフコード</th>
+            <th class="sticky">3都市目</th>
+            <th class="sticky">3都市目_現地出発日</th>
+            <th class="sticky">3都市目_ホテルタリフコード</th>
+            <th class="sticky">航空会社</th>
+            <th class="sticky">キャビンクラス（往路）</th>
+            <th class="sticky">キャビンクラス（複路）</th>
+            <th class="sticky">便名（往路）</th>
+            <th class="sticky">便名（複路）</th>
+            <th class="sticky">作成日時</th>
+            <th class="sticky">更新日時</th>
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td>{{ object.registrationFormRadioButton }}</td>
+            <td>{{ object.outputDestinationJtbChackBox }}</td>
+            <td>{{ object.outputDestinationTravelChackBox }}</td>
+            <td>{{ object.outputDestinationPamphletChackBox }}</td>
+            <td>{{ object.departurePoint }}</td>
+            <td>{{ object.adultNum }}</td>
+            <td>{{ object.departureDateSettingRadio }}</td>
+            <td>{{ object.absoluteSettingStartDate | date:'Y/m/d H:i' }}</p>
+            <td>{{ object.absoluteSettingEndDate | date:'Y/m/d H:i' }}</p>
+            <td>{{ object.relativeSettings1StartList }}</td>
+            <td>{{ object.relativeSettings1EndList }}</td>
+            <td>{{ object.relativeSettings2StartDayTxt }}</td>
+            <td>{{ object.relativeSettings2EndDayTxt }}</td>
+            <td>{{ object.rootPackageId }}</td>
+            <td>{{ object.firstCity }}</td>
+            <td>{{ object.firstCityDepartureDate }}</td>
+            <td>{{ object.firstCityHotelTariffCode }}</td>
+            <td>{{ object.firstCityLopCompanyCode }}</td>
+            <td>{{ object.firstCityPlanId }}</td>
+            <td>{{ object.secondtCity }}</td>
+            <td>{{ object.secondtCityDepartureDate }}</td>
+            <td>{{ object.secondtCityHotelTariffCode }}</td>
+            <td>{{ object.thirdCity }}</td>
+            <td>{{ object.thirdCityDepartureDate }}</td>
+            <td>{{ object.thirdCityHotelTariffCode }}</td>
+            <td>{{ object.airlinesSelectTxt }}</td>
+            <td>{{ object.cabinClassOutboundTripRadioButton }}</td>
+            <td>{{ object.cabinClassRoundTripRadioButton }}</td>
+            <td>{{ object.flightNumberOutboundTripTxt }}</td>
+            <td>{{ object.flightNumberRoundTripTxt }}</td>
+            <td>{{ object.created_at | date:'Y/m/d H:i' }}</p>
+            <td>{{ object.updated_at | date:'Y/m/d H:i' }}</p>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<p><a href="{% url 'create' %}" style="margin-left: 50px;" class="btn btn-primary">条件追加</a>
+    <a href="{% url 'csv_export' %}" class="btn btn-primary">csv出力</a>
+</p>
 {% endblock %}
 
