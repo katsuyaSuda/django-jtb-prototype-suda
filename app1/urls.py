@@ -8,4 +8,5 @@ urlpatterns = [
     path('create/', views.Create.as_view(), name="create"),
     path('list/', views.List.as_view(), name="list"),
     path('export/', views.csv_export, name='csv_export'),
+    path('import/', views.CsvImport.as_view(), name='csv_import'),
 ]

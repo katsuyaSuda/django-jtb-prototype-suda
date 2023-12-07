@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, FormView
 
 from .models import RequirementsInfometion
-from .forms import RequirementsInfometionForm
+from .forms import RequirementsInfometionForm,CSVUploadForm
 
 from django.http import HttpResponse
 from django.shortcuts import render
-import csv,urllib
+import csv,urllib,io
 
 # # Create your views here.
 class List(ListView):
@@ -21,6 +21,7 @@ class Create(CreateView):
     template_name = "app1/requirementsinfometion_form.html"
     success_url = "/"
 
+#region dbに登録した条件をcsvに出力
 def csv_export(request):
     # requirementsInfometionモデルの情報をcsv出力
     response = HttpResponse(content_type='text/csv; charset=Shift-JIS')
@@ -31,9 +32,11 @@ def csv_export(request):
     response['Content-Disposition'] = 'attachment; filename*=UTF-8\'\'{}'.format(filename)
 
     writer = csv.writer(response)
+
+    #全ての条件リストを取得する
     requirementsInfometions_list = getRequirementsInfometions()
 
-    #region カラム列
+    #region カラム列_論理名
     writer.writerow([
         "登録形態",
         "出力先_JTB",
@@ -68,7 +71,43 @@ def csv_export(request):
         "作成日時",
         "更新日時"
     ])
-    #endregion カラム列
+    #endregion カラム列_論理名
+
+    #region カラム列_物理名
+    writer.writerow([
+        "registrationFormRadioButton", 
+        "outputDestinationJtbChackBox",
+        "outputDestinationTravelChackBox",
+        "outputDestinationPamphletChackBox",
+        "departurePoint",
+        "adultNum",
+        "departureDateSettingRadio",
+        "absoluteSettingStartDate",
+        "absoluteSettingEndDate",
+        "relativeSettings1StartList",
+        "relativeSettings1EndList",
+        "relativeSettings2StartDayTxt",
+        "relativeSettings2EndDayTxt",
+        "rootPackageId",
+        "firstCity",
+        "firstCityDepartureDate",
+        "firstCityHotelTariffCode",
+        "firstCityLopCompanyCode",
+        "firstCityPlanId",
+        "secondtCity",
+        "secondtCityDepartureDate",
+        "secondtCityHotelTariffCode",
+        "thirdCity",
+        "thirdCityDepartureDate",
+        "thirdCityHotelTariffCode",
+        "airlinesSelectTxt",
+        "cabinClassOutboundTripRadioButton",
+        "cabinClassRoundTripRadioButton",
+        "flightNumberOutboundTripTxt",
+        "flightNumberRoundTripTxt",        
+        "created_at",
+        "updated_at"])
+    #endregion カラム列_物理名
 
     #region データ列
     for requirementsInfometion in requirementsInfometions_list:
@@ -113,7 +152,64 @@ def getRequirementsInfometions():
   requirementsInfometion_list = RequirementsInfometion.objects.all()
   return requirementsInfometion_list
 
+# def getRequirementsInfometions(searchId):
+#   requirementsInfometion_list = RequirementsInfometion.objects.filter(id=searchId)
+#   return requirementsInfometion_list
+
 def getDateTime():
   latest_time = RequirementsInfometion.objects.latest("updated_at")
   latest_time = latest_time.updated_at
   return latest_time
+#endregion dbに登録した条件をcsvに出力
+
+
+#region csvファイルをインポート
+class CsvImport(FormView):
+    form_class = CSVUploadForm
+    template_name = 'app1/import.html'
+    success_url = "/"
+
+    def form_valid(self, form):
+        # csv.readerに渡すため、TextIOWrapperでテキストモードなファイルに変換
+        csvfile = io.TextIOWrapper(form.cleaned_data['file'], encoding='utf-8')
+        reader = csv.reader(csvfile)
+        # 1行ずつ取り出し、作成していく
+        for row in reader:
+            requirementsInfo, created = RequirementsInfometion.objects.get_or_create(pk=row[0])
+            requirementsInfo.registrationFormRadioButton  = row[1]
+            requirementsInfo.outputDestinationJtbChackBox = row[2]
+            requirementsInfo.outputDestinationTravelChackBox = row[3]
+            requirementsInfo.outputDestinationPamphletChackBox = row[4]
+            requirementsInfo.departurePoint = row[5]
+            requirementsInfo.adultNum = row[6]
+            requirementsInfo.departureDateSettingRadio = row[7]
+            requirementsInfo.absoluteSettingStartDate = row[8]
+            requirementsInfo.absoluteSettingEndDate = row[9]
+            requirementsInfo.relativeSettings1StartList = row[10]
+            requirementsInfo.relativeSettings1EndList = row[11]
+            requirementsInfo.relativeSettings2StartDayTxt = row[12]
+            requirementsInfo.relativeSettings2EndDayTxt = row[13]
+            requirementsInfo.rootPackageId = row[14]
+            requirementsInfo.firstCity = row[15]
+            requirementsInfo.firstCityDepartureDate = row[16]
+            requirementsInfo.firstCityHotelTariffCode = row[17]
+            requirementsInfo.firstCityLopCompanyCode = row[18]
+            requirementsInfo.firstCityPlanId = row[19]
+            requirementsInfo.secondtCity = row[20]
+            requirementsInfo.secondtCityDepartureDate = row[21]
+            requirementsInfo.secondtCityHotelTariffCode = row[22]
+            requirementsInfo.thirdCity = row[23]
+            requirementsInfo.thirdCityDepartureDate = row[24]
+            requirementsInfo.thirdCityHotelTariffCode = row[25]
+            requirementsInfo.airlinesSelectTxt = row[26]
+            requirementsInfo.cabinClassOutboundTripRadioButton = row[27]
+            requirementsInfo.cabinClassRoundTripRadioButton = row[28]
+            requirementsInfo.flightNumberOutboundTripTxt = row[29]
+            requirementsInfo.flightNumberRoundTripTxt = row[30]
+            requirementsInfo.created_at = row[31]
+            requirementsInfo.updated_at = row[32]
+
+            requirementsInfo.save()
+        return super().form_valid(form)
+    
+#endregion csvファイルをインポート

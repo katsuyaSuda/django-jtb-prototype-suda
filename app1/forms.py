@@ -40,14 +40,6 @@ class RequirementsInfometionForm(forms.ModelForm):
                   "flightNumberRoundTripTxt",
                   )
 
-
-    # ##出発日設定時間_ラジオボタン
-    # departureDateSettingRadioChoice = [('0', '絶対設定'), ('1', '相対設定1'), ('2', '相対設定2')]
-    # departureDateSettingRadio = forms.fields.ChoiceField(
-    #     label='出発日設定時間_ラジオボタン',
-    #     required=False,
-    #     disabled=False,
-    #     choices= departureDateSettingRadioChoice,
-    #     widget=forms.RadioSelect(attrs={
-    #            'id': ' ','class': 'form-check-input'})
-    # )
+#アップロード用フォーム
+class CSVUploadForm(forms.Form):
+    file = forms.FileField(label='CSVファイル', help_text='※拡張子csvのファイルをアップロードしてください。')
