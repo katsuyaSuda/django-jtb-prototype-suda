@@ -43,11 +43,11 @@
                 <div class="col-3 border bg-light ">出力先</div>
                 <div class="col-8 border">
                     <input class="ml-1" type="checkbox" id="outputDestinationJtbChackBox" name="outputDestinationJtbChackBox" />
-                    <label for="horns">JTB</label>
+                    <label for="outputDestinationJtbChackBox">JTB</label>
                     <input class="ml-1" type="checkbox" id="outputDestinationTravelChackBox" name="outputDestinationTravelChackBox" />
-                    <label for="horns">トラベルコ</label>
+                    <label for="outputDestinationTravelChackBox">トラベルコ</label>
                     <input class="ml-1" type="checkbox" id="outputDestinationPamphletChackBox" name="outputDestinationPamphletChackBox" />
-                    <label for="horns">パンフレット</label>
+                    <label for="outputDestinationPamphletChackBox">パンフレット</label>
                 </div>
             </div>
         </div>  
@@ -216,8 +216,9 @@
                         <div class="d-flex flex-row ml-1">
                             <div class="p-2 bg-light border">ホテルタリフコード</div>
                             <div class="p-2 border">
-                                <input type="text" id="firstCityHotelTariffCode" name="firstCityHotelTariffCode">
-                                <a>日後</a>
+                                <input type="text" id="firstCityHotelTariffCode1" name="firstCityHotelTariffCode1" size="3">
+                                <a>-H-</a>
+                                <input type="text" id="firstCityHotelTariffCode2" name="firstCityHotelTariffCode2" size="3">
                             </div>
                         </div>
                     </div>
@@ -233,8 +234,9 @@
                         <div class="d-flex flex-row ml-1">
                             <div class="p-2 bg-light border">ホテルタリフコード</div>
                             <div class="p-2 border">
-                                <input type="text" id="secondtCityHotelTariffCode" name="secondtCityHotelTariffCode">
-                                <a>日後</a>
+                                <input type="text" id="secondtCityHotelTariffCode1" name="secondtCityHotelTariffCode1" size="3">
+                                <a>-H-</a>
+                                <input type="text" id="secondtCityHotelTariffCode2" name="secondtCityHotelTariffCode2" size="3">
                             </div>
                         </div>
                     </div>
@@ -242,8 +244,9 @@
                         <div class="d-flex flex-row ml-1">
                             <div class="p-2 bg-light border">ホテルタリフコード</div>
                             <div class="p-2 border">
-                                <input type="text" id="thirdCityHotelTariffCode" name="thirdCityHotelTariffCode">
-                                <a>日後</a>
+                                <input type="text" id="thirdCityHotelTariffCode1" name="thirdCityHotelTariffCode1" size="3">
+                                <a>-H-</a>
+                                <input type="text" id="thirdCityHotelTariffCode2" name="thirdCityHotelTariffCode2" size="3">
                             </div>
                         </div>
                     </div>
@@ -254,10 +257,17 @@
         <!-- 航空会社 -->
         <div class="container-fluid ml-5" >
             <div class="row">
+                <!-- 航空会社  -->
                 <div class="col-3 border bg-light">航空会社</div>
-                <div class="col-8 border">
+                <div class="col-3 border">
                     <input type="text" id="airlinesSelectTxt" name="airlinesSelectTxt" size="3" >
                     <input type="button" id="airlinesSelectButton" name="airlinesSelectButton" value="航空会社選択"> 
+                </div>
+                <!-- 直行便指定  -->
+                <div class="col-3 border bg-light">直行便指定</div>
+                <div class="col-3 border">
+                    <input class="ml-1" type="checkbox" id="useDirectFlightChackBox" name="useDirectFlightChackBox" />
+                    <label for="useDirectFlightChackBox">直行便利用</label>
                 </div>
             </div>
         </div>

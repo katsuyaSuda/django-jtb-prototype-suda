@@ -33,22 +33,16 @@ class RequirementsInfometion(models.Model):
     #JTB
     outputDestinationJtbChackBox = models.BooleanField(
         verbose_name='出力先_JTB',
-        max_length=255,
-        blank=False,
-        null=False)
+    )
     #トラベルコ
     outputDestinationTravelChackBox = models.BooleanField(
         verbose_name='出力先_トラベルコ',
-        max_length=255,
-        blank=False,
-        null=False)
+    )
     #パンフレット
     outputDestinationPamphletChackBox = models.BooleanField(
         verbose_name='出力先_パンフレット',
-        max_length=255,
-        blank=False,
-        null=False)
-
+    )
+    
     #### 出発地 ####
     departurePoint = models.CharField(
         verbose_name='出発地',
@@ -119,8 +113,8 @@ class RequirementsInfometion(models.Model):
     firstCity = models.CharField(
         verbose_name='1都市目',
         max_length=255,
-        blank=True,
-        null=True)
+        blank=False,
+        null=False)
     
     #1都市目_現地出発日
     firstCityDepartureDate = models.CharField(
@@ -129,9 +123,16 @@ class RequirementsInfometion(models.Model):
         blank=True,
         null=True)
     
-    #1都市目_ホテルタリフコード
-    firstCityHotelTariffCode = models.CharField(
-        verbose_name='1都市目_ホテルタリフコード',
+    #1都市目_ホテルタリフコード1
+    firstCityHotelTariffCode1 = models.CharField(
+        verbose_name='1都市目_ホテルタリフコード1',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #1都市目_ホテルタリフコード2
+    firstCityHotelTariffCode2 = models.CharField(
+        verbose_name='1都市目_ホテルタリフコード2',
         max_length=255,
         blank=True,
         null=True)
@@ -164,9 +165,16 @@ class RequirementsInfometion(models.Model):
         blank=True,
         null=True)
     
-    #2都市目_ホテルタリフコード
-    secondtCityHotelTariffCode = models.CharField(
-        verbose_name='2都市目_ホテルタリフコード',
+    #2都市目_ホテルタリフコード1
+    secondtCityHotelTariffCode1 = models.CharField(
+        verbose_name='2都市目_ホテルタリフコード1',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #2都市目_ホテルタリフコード2
+    secondtCityHotelTariffCode2 = models.CharField(
+        verbose_name='2都市目_ホテルタリフコード2',
         max_length=255,
         blank=True,
         null=True)
@@ -185,9 +193,16 @@ class RequirementsInfometion(models.Model):
         blank=True,
         null=True)
     
-    #3都市目_ホテルタリフコード
-    thirdCityHotelTariffCode = models.CharField(
-        verbose_name='3都市目_ホテルタリフコード',
+    #3都市目_ホテルタリフコード1
+    thirdCityHotelTariffCode1 = models.CharField(
+        verbose_name='3都市目_ホテルタリフコード1',
+        max_length=255,
+        blank=True,
+        null=True)
+    
+    #3都市目_ホテルタリフコード2
+    thirdCityHotelTariffCode2 = models.CharField(
+        verbose_name='3都市目_ホテルタリフコード2',
         max_length=255,
         blank=True,
         null=True)
@@ -199,7 +214,12 @@ class RequirementsInfometion(models.Model):
         max_length=255,
         blank=True,
         null=True) 
-    
+
+    #直行便指定
+    useDirectFlightChackBox = models.BooleanField(
+        verbose_name='直行便指定',
+    )
+
     #### キャビンクラス（往路） ####
     #キャビンクラス（往路）
     cabinClassOutboundTripRadioButton = models.TextField(

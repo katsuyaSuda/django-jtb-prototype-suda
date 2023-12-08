@@ -31,6 +31,7 @@
             <th class="sticky">3都市目_現地出発日</th>
             <th class="sticky">3都市目_ホテルタリフコード</th>
             <th class="sticky">航空会社</th>
+            <th class="sticky">直行便指定</th>
             <th class="sticky">キャビンクラス（往路）</th>
             <th class="sticky">キャビンクラス（複路）</th>
             <th class="sticky">便名（往路）</th>
@@ -57,16 +58,17 @@
             <td>{{ object.rootPackageId }}</td>
             <td>{{ object.firstCity }}</td>
             <td>{{ object.firstCityDepartureDate }}</td>
-            <td>{{ object.firstCityHotelTariffCode }}</td>
+            <td>{{ object.firstCityHotelTariffCode1 }} {{ object.firstCityHotelTariffCode2 }}</td>
             <td>{{ object.firstCityLopCompanyCode }}</td>
             <td>{{ object.firstCityPlanId }}</td>
             <td>{{ object.secondtCity }}</td>
             <td>{{ object.secondtCityDepartureDate }}</td>
-            <td>{{ object.secondtCityHotelTariffCode }}</td>
+            <td>{{ object.secondtCityHotelTariffCode1 }} {{ object.secondtCityHotelTariffCode2 }}</td>
             <td>{{ object.thirdCity }}</td>
             <td>{{ object.thirdCityDepartureDate }}</td>
-            <td>{{ object.thirdCityHotelTariffCode }}</td>
+            <td>{{ object.thirdCityHotelTariffCode1 }} {{ object.thirdCityHotelTariffCode2 }}</td>
             <td>{{ object.airlinesSelectTxt }}</td>
+            <td>{{ object.useDirectFlightChackBox }}</td>
             <td>{{ object.cabinClassOutboundTripRadioButton }}</td>
             <td>{{ object.cabinClassRoundTripRadioButton }}</td>
             <td>{{ object.flightNumberOutboundTripTxt }}</td>

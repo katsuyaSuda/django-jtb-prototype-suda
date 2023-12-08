@@ -127,3 +127,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#### AWSアクセス ####
+# AWS_ACCESS_KEY_ID = アクセスキー
+# AWS_SECRET_ACCESS_KEY = シークレットアクセスキー
+# AWS_STORAGE_BUCKET_NAME = 'バケット名'
+try:
+    from .local_settings import *
+except ImportError:
+    pass

@@ -8,7 +8,8 @@ class RequirementsInfometionForm(forms.ModelForm):
 
     class Meta:
         model = RequirementsInfometion
-        fields = ("registrationFormRadioButton", 
+        fields = (
+                  "registrationFormRadioButton", 
                   "outputDestinationJtbChackBox", 
                   "outputDestinationTravelChackBox",
                   "outputDestinationPamphletChackBox",
@@ -24,16 +25,20 @@ class RequirementsInfometionForm(forms.ModelForm):
                   "rootPackageId",
                   "firstCity",
                   "firstCityDepartureDate",
-                  "firstCityHotelTariffCode",
+                  "firstCityHotelTariffCode1",
+                  "firstCityHotelTariffCode2",
                   "firstCityLopCompanyCode",
                   "firstCityPlanId",
                   "secondtCity",
                   "secondtCityDepartureDate",
-                  "secondtCityHotelTariffCode",
+                  "secondtCityHotelTariffCode1",
+                  "secondtCityHotelTariffCode2",
                   "thirdCity",
                   "thirdCityDepartureDate",
-                  "thirdCityHotelTariffCode",
+                  "thirdCityHotelTariffCode1",
+                  "thirdCityHotelTariffCode2",
                   "airlinesSelectTxt",
+                  "useDirectFlightChackBox",
                   "cabinClassOutboundTripRadioButton",
                   "cabinClassRoundTripRadioButton",
                   "flightNumberOutboundTripTxt",
