@@ -42,13 +42,13 @@
         {% for object in object_list %}
         <tr>
             <td><a href="{% url 'csv_export' %}" name="id" value="{{ object.id }}">{{ object.id }}</a></td>
-            <td>{{ object.registrationFormRadioButton }}</td>
+            <td>{{ object.get_registrationFormRadioButton_display }}</td>
             <td>{{ object.outputDestinationJtbChackBox }}</td>
             <td>{{ object.outputDestinationTravelChackBox }}</td>
             <td>{{ object.outputDestinationPamphletChackBox }}</td>
-            <td>{{ object.departurePoint }}</td>
+            <td>{{ object.get_departurePoint_display }}</td>
             <td>{{ object.adultNum }}</td>
-            <td>{{ object.departureDateSettingRadio }}</td>
+            <td>{{ object.get_departureDateSettingRadio_display }}</td>
             <td>{{ object.absoluteSettingStartDate | date:'Y/m/d H:i' }}</p>
             <td>{{ object.absoluteSettingEndDate | date:'Y/m/d H:i' }}</p>
             <td>{{ object.relativeSettings1StartList }}</td>
@@ -69,8 +69,8 @@
             <td>{{ object.thirdCityHotelTariffCode1 }} {{ object.thirdCityHotelTariffCode2 }}</td>
             <td>{{ object.airlinesSelectTxt }}</td>
             <td>{{ object.useDirectFlightChackBox }}</td>
-            <td>{{ object.cabinClassOutboundTripRadioButton }}</td>
-            <td>{{ object.cabinClassRoundTripRadioButton }}</td>
+            <td>{{ object.get_cabinClassOutboundTripRadioButton_display }}</td>
+            <td>{{ object.get_cabinClassRoundTripRadioButton_display }}</td>
             <td>{{ object.flightNumberOutboundTripTxt }}</td>
             <td>{{ object.flightNumberRoundTripTxt }}</td>
             <td>{{ object.created_at | date:'Y/m/d H:i' }}</p>
@@ -82,7 +82,10 @@
 <p>
     <a href="{% url 'create' %}" style="margin-left: 50px;" class="btn btn-primary">条件追加</a>
     <a href="{% url 'csv_export' %}" class="btn btn-primary">csv出力</a>
+    <a href="{% url 'csv_export_target' %}" class="btn btn-primary">csv対象出力</a>
     <a href="{% url 'csv_import' %}" class="btn btn-primary">csv取得</a>
+    <a href="{% url 'upload_file_to_s3' %}" class="btn btn-primary">csvS3アップロード</a>
+    <a href="{% url 'download_file_from_s3' %}" class="btn btn-primary">csvS3からダウンロード</a>
 </p>
 {% endblock %}
 

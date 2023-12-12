@@ -26,7 +26,7 @@ class Create(CreateView):
     template_name = "app1/requirementsinfometion_form.html"
     success_url = "/"
 
-#region dbに登録した条件をcsvに出力
+#region dbに登録した条件をcsvに全カラム出力
 def csv_export(request):
     # requirementsInfometionモデルの情報をcsv出力
     response = HttpResponse(content_type='text/csv; charset=Shift-JIS')
@@ -41,8 +41,9 @@ def csv_export(request):
     #全ての条件リストを取得する
     requirementsInfometions_list = getRequirementsInfometions()
 
-    # カラム列_論理名を出力しない
-    # カラム列_物理名を出力しない
+    # カラム列_論理名、カラム列_物理名の出力設定
+    #True：カラム名を出力、False:カラム名を出力しない
+
     outPutcolLogicNameFlg = outPutcolphysicsNameFlg = True
 
     # カラム列論理名flgがTrueの時出力
@@ -127,7 +128,7 @@ def csv_export(request):
     #region データ列
     for requirementsInfometion in requirementsInfometions_list:
         writer.writerow([ 
-           requirementsInfometion.registrationFormRadioButton, 
+           requirementsInfometion.registrationFormRadioButton,
            requirementsInfometion.outputDestinationJtbChackBox,
            requirementsInfometion.outputDestinationTravelChackBox,
            requirementsInfometion.outputDestinationPamphletChackBox,
@@ -172,7 +173,95 @@ def getDateTime():
   latest_time = RequirementsInfometion.objects.latest("updated_at")
   latest_time = latest_time.updated_at
   return latest_time
-#endregion dbに登録した条件をcsvに出力
+#endregion dbに登録した条件をcsvに全カラム出力
+
+#region dbに登録した条件をcsvに対象カラム出力
+def csv_export_target(request):
+    # requirementsInfometionモデルの情報をcsv出力
+    response = HttpResponse(content_type='text/csv; charset=Shift-JIS')
+    date_time = getDateTime()
+    str_time = date_time.strftime('%Y%m%d%H%M')
+    f = "条件一覧" + "_" + str_time + ".csv"
+    filename = urllib.parse.quote((f).encode("utf8"))
+    response['Content-Disposition'] = 'attachment; filename*=UTF-8\'\'{}'.format(filename)
+
+    writer = csv.writer(response)
+
+    #全ての条件リストを取得する
+    requirementsInfometions_list = getRequirementsInfometions()
+
+    # カラム列_論理名、カラム列_物理名の出力設定
+    #True：カラム名を出力、False:カラム名を出力しない
+    outPutcolLogicNameFlg = outPutcolphysicsNameFlg = True
+
+    # カラム列論理名flgがTrueの時出力
+    #region カラム列_論理名
+    if outPutcolLogicNameFlg==True:
+        writer.writerow([
+            "サービスパッケージID",
+            "ルートパッケージID",
+            "1都市目_都市コード",
+            "1都市目_ホテルID",
+            "出発地",
+            "1都市目_現地出発日",
+            "大人人数",
+            "〇か月後の月初",
+            "〇か月後の月末",
+            "航空会社",
+            "直行便指定",
+            "キャビンクラス（往路）",
+            "キャビンクラス（複路）",
+            "便名（往路）",
+            "便名（複路）",
+        ])
+    #endregion カラム列_論理名
+
+    # カラム列物理名flgがTrueの時出力
+    #region カラム列_物理名
+    if outPutcolphysicsNameFlg==True:
+        writer.writerow([
+            "",
+            "rootPackageId",
+            "firstCity",
+            "firstCityHotelTariffCode1" + " " + "firstCityHotelTariffCode2",
+            "departurePoint",
+            "firstCityDepartureDate",
+            "adultNum",
+            "",
+            "",
+            "airlinesSelectTxt",
+            "useDirectFlightChackBox",
+            "cabinClassOutboundTripRadioButton",
+            "cabinClassRoundTripRadioButton",
+            "flightNumberOutboundTripTxt",
+            "flightNumberRoundTripTxt",        
+        ])
+    #endregion カラム列_物理名
+
+    #region データ列
+    for requirementsInfometion in requirementsInfometions_list:
+        writer.writerow([ 
+            "",
+           requirementsInfometion.rootPackageId,
+           requirementsInfometion.firstCity,
+           '{}{}'.format(requirementsInfometion.firstCityHotelTariffCode1, requirementsInfometion.firstCityHotelTariffCode2),
+           requirementsInfometion.departurePoint,
+           requirementsInfometion.firstCityDepartureDate,
+           requirementsInfometion.adultNum,
+           "",
+           "",
+           requirementsInfometion.airlinesSelectTxt,
+           requirementsInfometion.useDirectFlightChackBox,
+           requirementsInfometion.cabinClassOutboundTripRadioButton,
+           requirementsInfometion.cabinClassRoundTripRadioButton,
+           requirementsInfometion.flightNumberOutboundTripTxt,
+           requirementsInfometion.flightNumberRoundTripTxt,
+        ])
+    #endregion データ列  
+    return response
+#endregion dbに登録した条件をcsvに対象カラム出力
+
+
 
 #region csvファイルをインポート
 class CsvImport(FormView):
@@ -228,8 +317,8 @@ class CsvImport(FormView):
         return super().form_valid(form)
 #endregion csvファイルをインポート
 
-#region S3にCSVアップロード
-### S3設定 ###
+#region S3設定
+
 s3 = boto3.resource('s3')
 bucket_name = settings.AWS_STORAGE_BUCKET_NAME
 bucket = s3.Bucket(bucket_name)
@@ -239,17 +328,19 @@ FILE = '対象ファイルCSV'
 ORIGIN_PATH = Path(FILE)
 SAVE_PATH = Path(FILE)
 
-### ファイルをS3にアップロードする ###
+#region S3にCSVアップロード
 def upload_file_to_s3(request):
     bucket.upload_file(str(ORIGIN_PATH), FILE)
     return render(request, 'app1/complete.html')
+#endregion S3にCSVアップロード
 
-### S3内のファイルをローカルに持ってくる ###
-# def download_file_from_s3(request):
-#     bucket.download_file(FILE, str(SAVE_PATH))
-#     return render(request, 'complete.html')
-    
-### S3内のファイルをブラウザ上でダウンロードする ###
+#region S3内のファイルをローカルに持ってくる
+def download_file_from_s3(request):
+    bucket.download_file(FILE, str(SAVE_PATH))
+    return render(request, 'app1/complete.html')
+#endregion S3内のファイルをローカルに持ってくる
+
+#region S3内のファイルをブラウザ上でダウンロードする
 def download_file_from_s3_directly(request):
     url = boto3.client.generate_presigned_url(
         'get_object',
@@ -260,4 +351,6 @@ def download_file_from_s3_directly(request):
         ExpiresIn = 600,
     )
     return HttpResponseRedirect(url)
-#endregion S3にCSVアップロード
+#endregion S3内のファイルをブラウザ上でダウンロードする
+
+#endregion S3設定

@@ -11,25 +11,25 @@
             <div class="row">
                 <div class="col-3 border bg-light">登録形態</div>
                 <div class="col-2 form-check">
-                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="0">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="1">
                     <label class="form-check-label" for="registrationFormRadioButton">
                         エスコート
                     </label>
                 </div>
                 <div class="col-2 form-check">
-                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="1">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="2">
                     <label class="form-check-label" for="registrationFormRadioButton">
                         MySTYLE(UAH含む)
                     </label>
                 </div>    
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="2">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="3">
                     <label class="form-check-label" for="registrationFormRadioButton">
                     航空券
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="3">
+                    <input class="form-check-input" type="radio" name="registrationFormRadioButton" id="registrationFormRadioButton" value="4">
                     <label class="form-check-label" for="registrationFormRadioButton">
                     ホテル
                     </label>
@@ -60,15 +60,29 @@
                 <div class="col-3 border">
                     <select class="form-select" aria-label="Default select example" id="departurePoint" name="departurePoint">
                         <option selected>---------</option>
-                        <option value="1">東京(羽田⁺成田)</option>
-                        <option value="2">東京(羽田)</option>
-                        <option value="3">東京(成田)</option>
-                        <option value="4">大阪(関空+伊丹+神戸)</option>
-                        <option value="5">札幌(新札幌)</option>
-                        <option value="6">名古屋(新千歳)</option>
-                        <option value="7">福岡</option>
+                        <option value="HND">東京(羽田)</option>
+                        <option value="NRT">東京(成田)</option>
+                        <option value="ITM">大阪(伊丹)</option>
+                        <option value="CTS">札幌(新千歳)</option>
+                        <option value="NGO">名古屋(中部)</option>
+                        <option value="FUK">福岡</option>
                     </select>
                 </div>
+                <!-- <div class="col-3 border bg-light ">出発地2</div>
+                <div class="col-3 border">
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="HND"/>
+                    <label for="departurePointChk">東京(羽田)</label>
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="NRT"/>
+                    <label for="departurePointChk">東京(成田)</label>
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="ITM"/>
+                    <label for="departurePointChk">大阪(伊丹)</label>
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="CTS"/>
+                    <label for="departurePointChk">札幌(新千歳)</label>
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="NGO"/>
+                    <label for="departurePointChk">名古屋(中部)</label>
+                    <input class="ml-1" type="checkbox" id="departurePointChk" name="departurePointChk" value="FUK"/>
+                    <label for="departurePointChk">福岡</label>
+                </div> -->
                 <!-- 大人人数 -->
                 <div class="col-3 border bg-light">大人人数</div>
                 <div class="col-3 border">
@@ -84,7 +98,7 @@
                 <div class="col-8 border form-check">
                     
                     <!-- 絶対設定 -->
-                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="0">
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="1">
                     <label class="form-check-label" for="departureDateSettingRadio">絶対設定</label>
                     <input type="date" class="ml-4" id="absoluteSettingStartDate" name="absoluteSettingStartDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
                     <Label>～</Label>
@@ -92,7 +106,7 @@
                     <br>
 
                     <!-- 相対設定1 -->
-                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="1">
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="2">
                     <label class="form-check-label" for="departureDateSettingRadio">相対設定1</label>
                     <select class="form-select ml-3" aria-label="Default select example" id="relativeSettings1StartList" name="relativeSettings1StartList">
                             <option selected>---------</option>
@@ -118,7 +132,7 @@
                     <br>
 
                     <!-- 相対設定2 -->
-                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="2">
+                    <input class="form-check-input" type="radio" name="departureDateSettingRadio" id="departureDateSettingRadio" value="3">
                     <label class="form-check-label" for="departureDateSettingRadio">相対設定2</label>
                     <input type="text" class="ml-3" size="3" id="relativeSettings2StartDayTxt" name="relativeSettings2StartDayTxt" value=""/>
                     <Label>日後～</Label>
@@ -278,25 +292,25 @@
                 <!-- キャビンクラス（往路）  -->
                 <div class="col-3 border bg-light">キャビンクラス（往路）</div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="0">
+                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="1">
                     <label class="form-check-label" for="cabinClassOutboundTripRadioButton">
                         エコノミー
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="1">
+                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="2">
                     <label class="form-check-label" for="cabinClassOutboundTripRadioButton">
                         プレミアムエコノミー
                     </label>
                 </div>    
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="2">
+                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="3">
                     <label class="form-check-label" for="cabinClassOutboundTripRadioButton">
                         ビジネス
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="3">
+                    <input class="form-check-input" type="radio" name="cabinClassOutboundTripRadioButton" id="cabinClassOutboundTripRadioButton" value="4">
                     <label class="form-check-label" for="cabinClassOutboundTripRadioButton">
                         ファースト
                     </label>
@@ -304,25 +318,25 @@
                 <!-- キャビンクラス（復路）  -->
                 <div class="col-2 border bg-light">キャビンクラス（復路）</div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="0">
+                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="1">
                     <label class="form-check-label" for="cabinClassRoundTripRadioButton">
                         エコノミー
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="1">
+                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="2">
                     <label class="form-check-label" for="cabinClassRoundTripRadioButton">
                         プレミアムエコノミー
                     </label>
                 </div>    
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="2">
+                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="3">
                     <label class="form-check-label" for="cabinClassRoundTripRadioButton">
                         ビジネス
                     </label>
                 </div>
                 <div class="col-1 form-check">
-                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="3">
+                    <input class="form-check-input" type="radio" name="cabinClassRoundTripRadioButton" id="cabinClassRoundTripRadioButton" value="4">
                     <label class="form-check-label" for="cabinClassRoundTripRadioButton">
                         ファースト
                     </label>

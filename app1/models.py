@@ -24,7 +24,11 @@ class RequirementsInfometion(models.Model):
     #### 登録形態 ####
     registrationFormRadioButton = models.TextField(
         verbose_name='登録形態',
-        choices=[('0', 'エスコート'), ('1', 'MySTYLE(UAH含む)'), ('2', '航空券 '), ('3', 'ホテル')],
+        choices=[('1', 'エスコート'), 
+                 ('2', 'MySTYLE(UAH含む)'), 
+                 ('3', '航空券 '), 
+                 ('4', 'ホテル')
+                 ],
         blank=False,
         null=False
         )
@@ -46,9 +50,31 @@ class RequirementsInfometion(models.Model):
     #### 出発地 ####
     departurePoint = models.CharField(
         verbose_name='出発地',
+        choices=[('HND', '東京(羽田)'), 
+                 ('NRT', '東京(成田)'), 
+                 ('ITM', '大阪(伊丹)'),
+                 ('CTS', '札幌(新千歳)'),
+                 ('NGO', '名古屋(中部)'),
+                 ('FUK', '福岡'),
+                 ],
         max_length=255,
         blank=False,
         null=False)
+    
+    # #### 出発地 ####
+    # departurePointChk = models.TextField(
+    #     verbose_name='出発地',
+    #     choices=[('HND', '東京(羽田)'), 
+    #              ('NRT', '東京(成田)'), 
+    #              ('ITM', '大阪(伊丹)'),
+    #              ('CTS', '札幌(新千歳)'),
+    #              ('NGO', '名古屋(中部)'),
+    #              ('FUK', '福岡'),
+    #              ],
+    #     max_length=255,
+    #     blank=False,
+    #     null=False)
+    
     # 大人人数
     adultNum = models.IntegerField(
         verbose_name='大人人数',
@@ -60,7 +86,10 @@ class RequirementsInfometion(models.Model):
     #出発日設定時間_ラジオボタン
     departureDateSettingRadio = models.TextField(
         verbose_name='出発日設定時間',
-        choices=[('0', '絶対設定'), ('1', '相対設定1'), ('2', '相対設定2')],
+        choices=[('1', '絶対設定'), 
+                 ('2', '相対設定1'), 
+                 ('3', '相対設定2'),
+                 ],
         blank=False,
         null=False)
 
@@ -218,20 +247,31 @@ class RequirementsInfometion(models.Model):
     #直行便指定
     useDirectFlightChackBox = models.BooleanField(
         verbose_name='直行便指定',
+        # choices=[(False, '直行便利用なし'), 
+        #          (True, '直行便利用')
+        #     ],
     )
 
     #### キャビンクラス（往路） ####
     #キャビンクラス（往路）
     cabinClassOutboundTripRadioButton = models.TextField(
         verbose_name='キャビンクラス（往路）',
-        choices=[('0', 'エコノミー'), ('1', 'プレミアムエコノミー'), ('2', 'ビジネス '), ('3', 'ファースト')],
+        choices=[('1', 'エコノミー'), 
+                 ('2', 'プレミアムエコノミー'), 
+                 ('3', 'ビジネス '), 
+                 ('4', 'ファースト')
+                 ],
         blank=True,
         null=True) 
     
     #キャビンクラス（複路）
     cabinClassRoundTripRadioButton = models.TextField(
         verbose_name='キャビンクラス（複路）',
-        choices=[('0', 'エコノミー'), ('1', 'プレミアムエコノミー'), ('2', 'ビジネス '), ('3', 'ファースト')],
+        choices=[('1', 'エコノミー'), 
+                 ('2', 'プレミアムエコノミー'), 
+                 ('3', 'ビジネス '), 
+                 ('4', 'ファースト')
+                 ],
         blank=True,
         null=True) 
 
