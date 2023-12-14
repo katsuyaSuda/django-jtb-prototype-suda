@@ -55,7 +55,7 @@ class RequirementsInfometion(models.Model):
                  ('ITM', '大阪(伊丹)'),
                  ('CTS', '札幌(新千歳)'),
                  ('NGO', '名古屋(中部)'),
-                 ('FUK', '福岡'),
+                 ('FUK', '福岡')
                  ],
         max_length=255,
         blank=False,
@@ -88,7 +88,7 @@ class RequirementsInfometion(models.Model):
         verbose_name='出発日設定時間',
         choices=[('1', '絶対設定'), 
                  ('2', '相対設定1'), 
-                 ('3', '相対設定2'),
+                 ('3', '相対設定2')
                  ],
         blank=False,
         null=False)
