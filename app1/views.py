@@ -44,7 +44,8 @@ def csv_export(request):
     # カラム列_論理名、カラム列_物理名の出力設定
     #True：カラム名を出力、False:カラム名を出力しない
 
-    outPutcolLogicNameFlg = outPutcolphysicsNameFlg = True
+    outPutcolLogicNameFlg = True
+    outPutcolphysicsNameFlg = True
 
     # カラム列論理名flgがTrueの時出力
     #region カラム列_論理名
@@ -192,7 +193,8 @@ def csv_export_target(request):
 
     # カラム列_論理名、カラム列_物理名の出力設定
     #True：カラム名を出力、False:カラム名を出力しない
-    outPutcolLogicNameFlg = outPutcolphysicsNameFlg = True
+    outPutcolLogicNameFlg = False
+    outPutcolphysicsNameFlg = True
 
     # カラム列論理名flgがTrueの時出力
     #region カラム列_論理名
@@ -269,52 +271,6 @@ class CsvImport(FormView):
     template_name = 'app1/import.html'
     success_url = "/"
 
-    def form_valid(self, form):
-        # csv.readerに渡すため、TextIOWrapperでテキストモードなファイルに変換
-        csvfile = io.TextIOWrapper(form.cleaned_data['file'], encoding='utf-8')
-        reader = csv.reader(csvfile)
-        # 1行ずつ取り出し、作成していく
-        for row in reader:
-            requirementsInfo, created = RequirementsInfometion.objects.get_or_create(pk=row[0])
-            requirementsInfo.registrationFormRadioButton  = row[1]
-            requirementsInfo.outputDestinationJtbChackBox = row[2]
-            requirementsInfo.outputDestinationTravelChackBox = row[3]
-            requirementsInfo.outputDestinationPamphletChackBox = row[4]
-            requirementsInfo.departurePoint = row[5]
-            requirementsInfo.adultNum = row[6]
-            requirementsInfo.departureDateSettingRadio = row[7]
-            requirementsInfo.absoluteSettingStartDate = row[8]
-            requirementsInfo.absoluteSettingEndDate = row[9]
-            requirementsInfo.relativeSettings1StartList = row[10]
-            requirementsInfo.relativeSettings1EndList = row[11]
-            requirementsInfo.relativeSettings2StartDayTxt = row[12]
-            requirementsInfo.relativeSettings2EndDayTxt = row[13]
-            requirementsInfo.rootPackageId = row[14]
-            requirementsInfo.firstCity = row[15]
-            requirementsInfo.firstCityDepartureDate = row[16]
-            requirementsInfo.firstCityHotelTariffCode1 = row[17]
-            requirementsInfo.firstCityHotelTariffCode2 = row[17]
-            requirementsInfo.firstCityLopCompanyCode = row[18]
-            requirementsInfo.firstCityPlanId = row[19]
-            requirementsInfo.secondtCity = row[20]
-            requirementsInfo.secondtCityDepartureDate = row[21]
-            requirementsInfo.secondtCityHotelTariffCode1 = row[22]
-            requirementsInfo.secondtCityHotelTariffCode2 = row[22]
-            requirementsInfo.thirdCity = row[23]
-            requirementsInfo.thirdCityDepartureDate = row[24]
-            requirementsInfo.thirdCityHotelTariffCode1 = row[25]
-            requirementsInfo.thirdCityHotelTariffCode2 = row[25]
-            requirementsInfo.airlinesSelectTxt = row[26]
-            requirementsInfo.useDirectFlightChackBox = row[27]
-            requirementsInfo.cabinClassOutboundTripRadioButton = row[28]
-            requirementsInfo.cabinClassRoundTripRadioButton = row[29]
-            requirementsInfo.flightNumberOutboundTripTxt = row[30]
-            requirementsInfo.flightNumberRoundTripTxt = row[31]
-            requirementsInfo.created_at = row[32]
-            requirementsInfo.updated_at = row[33]
-
-            requirementsInfo.save()
-        return super().form_valid(form)
 #endregion csvファイルをインポート
 
 #region S3設定
